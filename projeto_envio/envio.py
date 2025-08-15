@@ -41,14 +41,14 @@ alt.attach(MIMEText(corpo,"html","utf-8"))
 mensagem.attach(alt)
 
 
-with open ("documentos/grafico.png","rb") as imagem:
+with open ("../documentos/grafico.png","rb") as imagem:
     img = MIMEImage(imagem.read(), _subtype="png")
 img.add_header("Content-ID",f"<{cid}>")
 img.add_header("Content-Disposition","inline")
 mensagem.attach(img)
 
 
-caminho_documento = "documentos/relatorio.pdf"
+caminho_documento = "../documentos/relatorio.pdf"
 with open(caminho_documento, "rb") as anexo:
     parte = MIMEBase("application","octet-stream")
     parte.set_payload(anexo.read())
